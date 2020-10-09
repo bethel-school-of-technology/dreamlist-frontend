@@ -10,8 +10,9 @@ class AuthService {
         Password
       })
       .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
+        console.log('response', response)
+        if (response.data.jwt) {
+          localStorage.setItem("user", JSON.stringify(response.data.jwt));
         }
 
         return response.data;
