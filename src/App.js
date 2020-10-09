@@ -26,8 +26,7 @@ class App extends Component {
 
     if (user) {
       this.setState({
-        currentUser: user,
-        
+        currentUser: user
       });
     }
   }
