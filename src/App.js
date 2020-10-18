@@ -10,6 +10,9 @@ import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
+import AddDream from "./components/add-dream.component";
+import Dream from "./components/dream.component";
+import DreamsList from "./components/dreams-list.component";
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +65,24 @@ class App extends Component {
                 </Link>
               </li>
             )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/dreams"} className="nav-link">
+                  Dreams
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/add"} className="nav-link">
+                  Add
+                </Link>
+              </li>
+            )}
+            
           </div>
+
+          
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">
@@ -101,6 +121,9 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
+            <Route exact path={["/", "/dreams"]} component={DreamsList} />
+            <Route exact path="/add" component={AddDream} />
+            <Route path="/dreams/:id" component={Dream} />
           </Switch>
         </div>
       </div>
