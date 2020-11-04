@@ -10,24 +10,24 @@ class DreamDataService {
   }
 
   create(data) {
-    return http.post("/dreams/add", data);
+    return http.post("/dreams", data);
   }
 
   update(id, data) {
-    return http.put(`/dreamss/${id}`, data);
+    return http.put(`/dreams/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/dreamss/${id}`);
+    return http.delete(`/dreams/${id}`);
   }
 
-//   deleteAll() {
-//     return http.delete(`/tutorials`);
-//   }
+  deleteAll() {
+    return http.delete(`/dreams`);
+  }
 
-//   findByTitle(title) {
-//     return http.get(`/tutorials?title=${title}`);
-//   }
+  findByTitle(title) {
+    return http.get(`/dreams?title=${title}`);
+  }
 }
 
 export default new DreamDataService();
