@@ -1,25 +1,37 @@
-import http from "../http-common";
+// import http from "../http-common";
+
+import axios from "axios";
+
+const API_URL = "http://localhost:8080";
 
 class DreamDataService {
-  getAll() {
-    return http.get("/dreams");
+  getAll(DreamTitle, DreamBody) {
+    return axios.get(API_URL + "/dreams", {
+      DreamTitle,
+      DreamBody
+    });
   }
 
-  get(id) {
-    return http.get(`/dreams/${id}`);
+  // get(id) {
+  //   return http.get(`/dreams/${id}`);
+  // }
+
+  create(DreamTitle, DreamBody) {
+    return axios.post(API_URL + "/dreams/add", {
+      DreamTitle,
+      DreamBody
+    });
   }
 
-  create(data) {
-    return http.post("/dreams/add", data);
-  }
+ 
 
-  update(id, data) {
-    return http.put(`/dreamss/${id}`, data);
-  }
+  // update(id, data) {
+  //   return http.put(`/dreams/${id}`, data);
+  // }
 
-  delete(id) {
-    return http.delete(`/dreamss/${id}`);
-  }
+  // delete(id) {
+  //   return http.delete(`/dreams/${id}`);
+  // }
 
 //   deleteAll() {
 //     return http.delete(`/tutorials`);
