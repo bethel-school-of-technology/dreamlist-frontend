@@ -10,6 +10,7 @@ import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
+
 import AddDream from "./components/add-dream.component";
 import Dream from "./components/dream.component";
 import DreamsList from "./components/dreams-list.component";
