@@ -16,19 +16,6 @@ class DreamDataService {
   //   return http.get(`/dreams/${id}`);
   // }
 
-// <<<<<<< homePage
-//   create(data) {
-//     return http.post("/dreams", data);
-//   }
-
-//   update(id, data) {
-//     return http.put(`/dreams/${id}`, data);
-//   }
-
-//   delete(id) {
-//     return http.delete(`/dreams/${id}`);
-//   }
-// =======
   create(DreamTitle, DreamBody) {
     return axios.post(API_URL + "/dreams/add", {
       DreamTitle,
@@ -45,15 +32,14 @@ class DreamDataService {
   // delete(id) {
   //   return http.delete(`/dreams/${id}`);
   // }
-// >>>>>>> dev
 
-  deleteAll() {
-    return http.delete(`/dreams`);
-  }
+//   deleteAll() {
+//     return http.delete(`/tutorials`);
+//   }
 
-  findByTitle(title) {
-    return http.get(`/dreams?title=${title}`);
-  }
+//   findByTitle(title) {
+//     return http.get(`/tutorials?title=${title}`);
+//   }
 }
 
 export default new DreamDataService();
