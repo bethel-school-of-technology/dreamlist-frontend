@@ -10,59 +10,62 @@ export default class AddDream extends Component {
     this.newDream = this.newDream.bind(this);
 
     this.state = {
-      id: null,
-      title: "",
-      description: "", 
-      published: false,
+      DreamTitle: "",
+      DreamBody: ""
+    //   published: false,
 
-      submitted: false
+    //   submitted: false
     };
+   
   }
 
   onChangeTitle(e) {
     this.setState({
-      title: e.target.value
+      DreamTitle: e.target.value
     });
   }
 
   onChangeDescription(e) {
     this.setState({
-      description: e.target.value
+      DreamBody: e.target.value
     });
   }
 
   saveDream() {
     var data = {
-      title: this.state.title,
-      description: this.state.description
+      DreamTitle: this.state.DreamTitle,
+      DreamBody: this.state.DreamBody
     };
 
     DreamDataService.create(data)
       .then(response => {
         this.setState({
-          id: response.data.id,
-          title: response.data.title,
-          description: response.data.description,
-          published: response.data.published,
 
-          submitted: true
+          DreamTitle: response.data.DreamTitle,
+          DreamBody: response.data.DreamBody
+          
+
+        //   submitted: true
         });
         console.log(response.data);
       })
       .catch(e => {
         console.log(e);
       });
+        
   }
 
   newDream() {
     this.setState({
-      id: null,
-      title: "",
-      description: "",
-      published: false,
 
-      submitted: false
+        
+      DreamTitle: "",
+      DreamBody: ""
+    //   published: false,
+
+    //   submitted: false
     });
+    
   }
 
   render() {
@@ -84,7 +87,7 @@ export default class AddDream extends Component {
                 className="form-control"
                 id="title"
                 required
-                value={this.state.title}
+                value={this.state.DreamTitle}
                 onChange={this.onChangeTitle}
                 name="title"
               />
@@ -98,7 +101,7 @@ export default class AddDream extends Component {
                 id="description"
                 rows="10"
                 required
-                value={this.state.description}
+                value={this.state.DreamBody}
                 onChange={this.onChangeDescription}
                 name="description">
                 </textarea>

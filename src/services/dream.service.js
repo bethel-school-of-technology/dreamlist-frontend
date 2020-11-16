@@ -9,7 +9,7 @@ class DreamDataService {
     return axios.get(API_URL + "/dreams", {
       DreamTitle,
       DreamBody
-    });
+    },{withCredentials: true});
   }
 
   // get(id) {
@@ -33,7 +33,7 @@ class DreamDataService {
     return axios.post(API_URL + "/dreams/add", {
       DreamTitle,
       DreamBody
-    });
+    },{withCredentials: true});
   }
 
  
