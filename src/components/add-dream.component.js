@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-
 import DreamDataService from "../services/dream.service";
 
 export default class AddDream extends Component {
@@ -12,42 +10,42 @@ export default class AddDream extends Component {
     this.newDream = this.newDream.bind(this);
 
     this.state = {
-      
-      Dreamtitle: "",
-      DreamBody: ""
-    //   published: false,
+      id: null,
+      title: "",
+      description: "", 
+      published: false,
 
-    //   submitted: false
+      submitted: false
     };
   }
 
   onChangeTitle(e) {
     this.setState({
-      Dreamtitle: e.target.value
+      title: e.target.value
     });
   }
 
   onChangeDescription(e) {
     this.setState({
-      DreamBody: e.target.value
+      description: e.target.value
     });
   }
 
   saveDream() {
     var data = {
-      DreamTitle: this.state.DreamTitle,
-      DreamBody: this.state.DreamBody
+      title: this.state.title,
+      description: this.state.description
     };
 
     DreamDataService.create(data)
       .then(response => {
         this.setState({
-          
-          DreamTitle: response.data.DreamTitle,
-          DreamBody: response.data.DreamBody
-          
+          id: response.data.id,
+          title: response.data.title,
+          description: response.data.description,
+          published: response.data.published,
 
-        //   submitted: true
+          submitted: true
         });
         console.log(response.data);
       })
@@ -58,12 +56,12 @@ export default class AddDream extends Component {
 
   newDream() {
     this.setState({
-      
-      DreamTitle: "",
-      DreamBody: ""
-    //   published: false,
+      id: null,
+      title: "",
+      description: "",
+      published: false,
 
-    //   submitted: false
+      submitted: false
     });
   }
 
@@ -80,33 +78,34 @@ export default class AddDream extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">Dream Title</label>
               <input
                 type="text"
                 className="form-control"
                 id="title"
                 required
-                value={this.state.DreamTitle}
+                value={this.state.title}
                 onChange={this.onChangeTitle}
                 name="title"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
+              <label htmlFor="description">Write Dream</label>
+              <textarea
                 type="text"
                 className="form-control"
                 id="description"
+                rows="10"
                 required
-                value={this.state.DreamBody}
+                value={this.state.description}
                 onChange={this.onChangeDescription}
-                name="description"
-              />
+                name="description">
+                </textarea>
             </div>
 
             <button onClick={this.saveDream} className="btn btn-success">
-              Submit
+              Save Dream
             </button>
           </div>
         )}
@@ -114,3 +113,4 @@ export default class AddDream extends Component {
     );
   }
 }
+

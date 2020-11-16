@@ -1,4 +1,4 @@
-// import http from "../http-common";
+import http from "../http-common";
 
 import axios from "axios";
 
@@ -47,13 +47,13 @@ class DreamDataService {
   // }
 // >>>>>>> dev
 
-  deleteAll() {
+deleteAll() {
     return http.delete(`/dreams`);
   }
 
   findByTitle(title) {
     return http.get(`/dreams?title=${title}`);
-  }
-}
+  }}
+
 
 export default new DreamDataService();
