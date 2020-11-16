@@ -20,7 +20,7 @@ class DreamDataService {
     return axios.post(API_URL + "/dreams/add", {
       DreamTitle,
       DreamBody
-    });
+    },{withCredentials: true});
   }
 
  
