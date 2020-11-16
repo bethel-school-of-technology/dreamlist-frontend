@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import UserService from "../services/user.service";
-import { Switch, Route, Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 
 

@@ -6,9 +6,12 @@ class AuthService {
   login(Username, Password) {
     return axios
       .post(API_URL + "/users/login", {
+       
         Username,
-        Password
-      })
+        Password 
+     },
+      
+      )
       .then(response => {
         console.log('response', response)
         if (response.data.jwt) {
@@ -30,7 +33,7 @@ class AuthService {
       LastName,
       Email,
       Password
-    });
+    },);
   }
 
   getCurrentUser() {

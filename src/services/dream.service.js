@@ -1,4 +1,4 @@
-// import http from "../http-common";
+import http from "../http-common";
 
 import axios from "axios";
 
@@ -9,7 +9,7 @@ class DreamDataService {
     return axios.get(API_URL + "/dreams", {
       DreamTitle,
       DreamBody
-    });
+    },{withCredentials: true});
   }
 
   // get(id) {
@@ -33,13 +33,13 @@ class DreamDataService {
   //   return http.delete(`/dreams/${id}`);
   // }
 
-//   deleteAll() {
-//     return http.delete(`/tutorials`);
-//   }
+deleteAll() {
+    return http.delete(`/dreams`);
+  }
 
-//   findByTitle(title) {
-//     return http.get(`/tutorials?title=${title}`);
-//   }
-}
+  findByTitle(title) {
+    return http.get(`/dreams?title=${title}`);
+  }}
+
 
 export default new DreamDataService();
